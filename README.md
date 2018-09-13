@@ -39,10 +39,10 @@ $ docker run --name testapp -p 1337:1337 -e APP_NAME=TEST_APP -v "$(pwd)"/cloud:
 #### visit
 
 ###### dashborad
-http://192.168.2.200:1337/dashborad
+http://host_ip:1337/dashborad
 
 ###### api
 
-http://192.168.2.200:1337/parse
+http://host_ip:1337/parse
 
 
