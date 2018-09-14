@@ -5,6 +5,9 @@
   "main": "app.js",
   "author": "<xugaoyang> i@xugaoyang.com",
   "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "config": "^2.0.1",
     "parse": "^2.1.0",

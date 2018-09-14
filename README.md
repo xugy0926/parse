@@ -1,5 +1,13 @@
 Example project using the parse-server module on Express.
 
+## run
+
+```
+$ npm start
+```
+
+## docker deploy
+
 #### build image
  
 ```
