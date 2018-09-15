@@ -3,6 +3,7 @@ const ParseServer = require('parse-server').ParseServer
 const ParseDashboard = require('parse-dashboard')
 
 const config = require('config')
+const fileUpload = require('express-fileupload')
 const path = require('path')
 
 const port = 1337
@@ -46,7 +47,7 @@ const api = new ParseServer({
           },
           verifyEmail: {
             template: path.join(__dirname, 'views/email/verify-email'),
-            subject: 'Verify Email'
+            subject: 'Verify your Email'
           }
         }
       },
@@ -75,6 +76,7 @@ const dashboard = new ParseDashboard(
 const app = express()
 const httpServer = require('http').createServer(app)
 
+// app.use(fileUpload())
 app.use(mountPath, api)
 app.use(dashboardPath, dashboard)
 httpServer.listen(port)

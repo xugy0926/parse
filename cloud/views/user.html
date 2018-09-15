@@ -1,0 +1,19 @@
+
+<div>{{ user }}</div>
+<script>
+  Parse.initialize("myAppId", "myJavaScriptKey");
+  Parse.serverURL = 'http://localhost:1337/parse'
+  new Vue({
+    el: '#app',
+    data: {
+      user: {}
+    },
+    created() {
+      Parse.Cloud.run('getUser', {}).then((response) => {
+        this.user = response
+      }).catch(console.log)
+    }
+  })
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/parse/1.11.1/parse.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="file" id="profilePhotoFileUpload">
+    <button v-on:click="uploadFromCloud">upload</button>
+  </div>
+</body>
+<script>
+  Parse.initialize("myAppId", "myJavaScriptKey");
+  Parse.serverURL = 'http://localhost:1337/parse'
+  new Vue({
+    el: '#app',
+    methods: {
+      upload() {
+        const fileUploadControl = $("#profilePhotoFileUpload")[0];
+        if (fileUploadControl.files.length > 0) {
+          const file = fileUploadControl.files[0];
+          const name = "photo.jpg";
+
+          const parseFile = new Parse.File(name, file);
+          parseFile.save().then(console.log).catch(console.log)
+        }
+      },
+      uploadFromCloud() {
+        const fileUploadControl = $("#profilePhotoFileUpload")[0];
+        if (fileUploadControl.files.length > 0) {
+          const file = fileUploadControl.files[0];
+          const name = "photo.jpg";
+
+          const parseFile = new Parse.File(name, file);
+          parseFile.save().then((file) => {
+            Parse.Cloud.run('upload', { file: file })
+          })
+        }
+      }
+    }
+  })
+</script>
+
+</html>

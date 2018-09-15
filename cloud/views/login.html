@@ -1,0 +1,9 @@
+<div>
+	<h1 class="intro">GitHub Authentication</h1>
+	<a href="/authorize">Login with GitHub</a>
+</div>
+<script type="text/javascript">
+	if (Parse.User.current()) {
+		window.location.href='/user';
+	}
+</script>
