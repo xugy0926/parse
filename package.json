@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "config": "^2.0.1",
+    "ejs": "^2.6.1",
     "parse": "^2.1.0",
     "parse-dashboard": "^1.2.0",
-    "parse-server": "^3.0.0"
+    "parse-server": "^3.0.0",
+    "simple-parse-smtp-adapter": "^1.0.9"
   },
   "devDependencies": {
     "eslint": "^5.5.0",

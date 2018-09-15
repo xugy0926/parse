@@ -5,5 +5,12 @@ module.exports = {
       pass: 'pass'
     }
   ],
-  useEncryptedPasswords: false
+  useEncryptedPasswords: false,
+  emailoptions: {
+    fromAddress: '',
+    user: '',
+    password: '',
+    host: '',
+    port: 465
+  }
 }
