@@ -6,21 +6,21 @@ const restrictedAcl = new Parse.ACL()
 restrictedAcl.setPublicReadAccess(false)
 restrictedAcl.setPublicWriteAccess(false)
 
-const upsertGitHubUser = function(githubData) {
+const upsertGitHubUser = function(profile) {
   var query = new Parse.Query(TokenStorage)
-  query.equalTo('githubId', githubData.id)
+  query.equalTo('githubId', profile.id)
   query.ascending('createdAt')
   return query.first({ useMasterKey: true }).then(function(tokenData) {
     if (!tokenData) {
-      return newGitHubUser(githubData)
+      return newGitHubUser(profile)
     }
 
     const user = tokenData.get('user')
     return user
       .fetch({ useMasterKey: true })
       .then(user => {
-        if (githubData.accessToken !== tokenData.get('accessToken')) {
-          tokenData.set('accessToken', githubData.accessToken)
+        if (profile.accessToken !== tokenData.get('accessToken')) {
+          tokenData.set('accessToken', profile.accessToken)
         }
 
         return tokenData.save(null, { useMasterKey: true }).then(() => user)
@@ -36,25 +36,25 @@ const upsertGitHubUser = function(githubData) {
   })
 }
 
-const newGitHubUser = function(githubData) {
+const newGitHubUser = function(profile) {
   const user = new Parse.User()
-  user.set('username', githubData.username)
-  user.set('email', githubData.email)
+  user.set('username', profile.username)
+  user.set('email', profile.email)
   user.set('password', randomize('*', 10))
 
   return user
     .signUp()
     .then(function(user) {
       const ts = new TokenStorage()
-      ts.set('githubId', githubData.id)
-      ts.set('githubLogin', githubData.username)
-      ts.set('accessToken', githubData.accessToken)
+      ts.set('githubId', profile.id)
+      ts.set('githubLogin', profile.username)
+      ts.set('accessToken', profile.accessToken)
       ts.set('user', user)
       ts.setACL(restrictedAcl)
       return ts.save(null, { useMasterKey: true })
     })
     .then(() => {
-      return upsertGitHubUser(githubData)
+      return upsertGitHubUser(profile)
     })
 }
 

@@ -14,10 +14,6 @@ Parse.Cloud.define('getPosts', function(req) {
   return query.find()
 })
 
-Parse.Cloud.afterSave('Post', function(req) {
-  console.log('after save post...')
-})
-
 Parse.Cloud.define('getUser', function(request, response) {
   if (!request.user) {
     return 'Must be logged in.'

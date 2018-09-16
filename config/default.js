@@ -14,9 +14,8 @@ module.exports = {
     port: 465
   },
   github: {
-    signinValid: true,
     clientID: '',
     clientSecret: '',
-    callbackURL: 'http://localhost:3000/oauthCallback'
-  },
+    callbackURL: 'http://host/oauthCallback'
+  }
 }

@@ -9,11 +9,15 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
+  globals: {
+    typeof: true,
+    process: true,
+    __dirname: true
+  },
   rules: {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'no-console': ['error', { allow: ['warn', 'error', 'log'] }],
-    'no-undef': ['error', { allow: { typeof: true, process: true } }]
+    'no-console': ['error', { allow: ['warn', 'error', 'log'] }]
   }
 }

@@ -3,7 +3,6 @@ const ParseServer = require('parse-server').ParseServer
 const ParseDashboard = require('parse-dashboard')
 
 const config = require('config')
-const fileUpload = require('express-fileupload')
 const path = require('path')
 
 const port = 1337
@@ -76,7 +75,6 @@ const dashboard = new ParseDashboard(
 const app = express()
 const httpServer = require('http').createServer(app)
 
-// app.use(fileUpload())
 app.use(mountPath, api)
 app.use(dashboardPath, dashboard)
 httpServer.listen(port)
