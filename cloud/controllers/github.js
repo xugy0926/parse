@@ -61,7 +61,7 @@ const newGitHubUser = function(profile) {
 function github(req, res) {
   const profile = req.user
   const email = profile.emails && profile.emails[0] && profile.emails[0].value
-  const photo = profile.photos && profile.photos[0] && profile.photos[0].value
+  // const photo = profile.photos && profile.photos[0] && profile.photos[0].value
 
   if (!(email && profile.username && profile.id)) {
     res.render('error', { errorMessage: 'Invalid github data' })

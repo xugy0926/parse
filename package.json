@@ -6,7 +6,8 @@
   "author": "<xugaoyang> i@xugaoyang.com",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -23,6 +24,7 @@
     "simple-parse-smtp-adapter": "^1.0.9"
   },
   "devDependencies": {
-    "eslint": "^5.5.0"
+    "eslint": "^5.5.0",
+    "mocha": "^5.2.0"
   }
 }

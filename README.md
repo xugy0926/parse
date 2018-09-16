@@ -3,7 +3,13 @@ Example project using the parse-server module on Express.
 ## run
 
 ```
-$ npm start
+$ yarn start
+```
+
+## test
+
+```
+$ yarn test
 ```
 
 ## docker deploy

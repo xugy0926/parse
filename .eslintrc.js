@@ -12,7 +12,10 @@ module.exports = {
   globals: {
     typeof: true,
     process: true,
-    __dirname: true
+    __dirname: true,
+    describe: true,
+    it: true,
+    Parse: true
   },
   rules: {
     'linebreak-style': ['error', 'unix'],
