@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser')
+const config = require('config')
 const ejsMate = require('ejs-mate')
 const express = require('express')
 const fileUpload = require('express-fileupload')
@@ -18,4 +19,4 @@ app.use(bodyParser.json())
 app.use(githubAuth())
 app.use(router)
 
-app.listen(3000)
+app.listen(config.get('cloudPort'))

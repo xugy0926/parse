@@ -17,7 +17,7 @@ ENV REST_KEY myRestKey
 ENV FILE_KEY optionalFileKey
 ENV DATABASE_URI mongodb://192.168.2.200:27017/dev
 ENV SERVER_URL http://192.168.2.200:1337/parse
-# ENV CLOUD_CODE_MAIN /parse/cloud/main.js
+ENV CLOUD /parse/cloud/main.js
 
 EXPOSE 1337
 

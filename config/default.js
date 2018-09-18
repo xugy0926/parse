@@ -1,12 +1,21 @@
+const path = require('path')
+const defer = require('config/defer').deferConfig
+
 module.exports = {
-  users: [
-    {
-      user: 'user',
-      pass: 'pass'
-    }
-  ],
-  useEncryptedPasswords: false,
-  emailoptions: {
+  port: undefined,
+  cloudPort: undefined,
+  appName: undefined,
+  mountPath: undefined,
+  dashboardPath: undefined,
+  databaseURI: undefined,
+  cloud: undefined,
+  appId: undefined,
+  restKey: undefined,
+  javascriptKey: undefined,
+  masterKey: undefined,
+  fileKey: undefined,
+  serverURL: undefined,
+  email: {
     fromAddress: '',
     user: '',
     password: '',
@@ -17,5 +26,73 @@ module.exports = {
     clientID: '',
     clientSecret: '',
     callbackURL: 'http://host/oauthCallback'
-  }
+  },
+  monitoringData: ['Post'],
+  dashboardUsers: [
+    {
+      user: 'user',
+      pass: 'pass'
+    }
+  ],
+  useEncryptedPasswords: false,
+  verifyUserEmails: false,
+  parse: defer(function() {
+    return Object.assign(
+      {
+        appName: this.appName,
+        databaseURI: this.databaseURI,
+        appId: this.appId,
+        restKey: this.restKey,
+        javascriptKey: this.javascriptKey,
+        masterKey: this.masterKey,
+        fileKey: this.fileKey,
+        serverURL: this.serverURL,
+        publicServerURL: this.serverURL,
+        cloud: this.cloud,
+        verifyUserEmails: this.verifyUserEmails,
+        liveQuery: { classNames: this.monitoringData }
+      },
+      this.verifyUserEmails
+        ? {
+            emailAdapter: {
+              module: 'simple-parse-smtp-adapter',
+              options: Object.assign(
+                {
+                  name: this.appName,
+                  emailField: false,
+                  templates: {
+                    resetPassword: {
+                      //Path to your template
+                      template: path.join(__dirname, '../views/email/reset-password'),
+                      //Subject for this email
+                      subject: 'Reset your password'
+                    },
+                    verifyEmail: {
+                      template: path.join(__dirname, '../views/email/verify-email'),
+                      subject: 'Verify your Email'
+                    }
+                  }
+                },
+                this.email
+              )
+            }
+          }
+        : {}
+    )
+  }),
+  dashboard: defer(function() {
+    return {
+      apps: [
+        {
+          appName: this.appName,
+          serverURL: this.serverURL,
+          appId: this.appId,
+          masterKey: this.masterKey,
+          restKey: this.restKey
+        }
+      ],
+      users: this.dashboardUsers,
+      useEncryptedPasswords: this.useEncryptedPasswords
+    }
+  })
 }
