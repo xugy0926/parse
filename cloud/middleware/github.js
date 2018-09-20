@@ -2,7 +2,11 @@ const passport = require('passport')
 const config = require('config')
 const GitHubStrategy = require('passport-github').Strategy
 
-module.exports = function() {
+function githubAuth(req, res, next) {
+  if (!config.get('verifyGithubAccount')) {
+    return next()
+  }
+
   passport.serializeUser(function(user, done) {
     done(null, user)
   })
@@ -18,5 +22,15 @@ module.exports = function() {
     })
   )
 
-  return passport.initialize()
+  passport.initialize()(req, res, next)
 }
+
+function verifyGithub(req, res, next) {
+  if (!config.get('verifyGithubAccount')) {
+    return next(new Error('Cannot use github account.'))
+  }
+
+  next()
+}
+
+module.exports = { githubAuth, verifyGithub }

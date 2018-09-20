@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 
+const { verifyGithub } = require('./middleware/github')
 const github = require('./controllers/github')
 const router = express.Router()
 
@@ -14,8 +15,8 @@ router.get('/user', (req, res) => {
   res.render('user', {})
 })
 
-router.get('/authorize', authenticate)
-router.get('/oauthCallback', authenticate, github)
+router.get('/authorize', verifyGithub, authenticate)
+router.get('/oauthCallback', verifyGithub, authenticate, github)
 
 router.get('/livequery', (req, res) => {
   res.render('livequery')

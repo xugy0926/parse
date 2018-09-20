@@ -4,8 +4,8 @@ module.exports = {
   appName: process.env.APP_NAME || 'My Parse Server App',
   mountPath: process.env.MOUNT_PATH || '/parse',
   dashboardPath: process.env.DASHBOARD_PATH || '/dashboard',
-  databaseURI: process.env.DATABASE_URI || 'mongodb://localhost:27017/dev',
-  cloud: process.env.CLOUD || '/parse/cloud/main.js',
+  databaseURI: process.env.DATABASE_URI || 'mongodb://localhost:27017/parse-dev',
+  cloud: process.env.CLOUD || `${process.cwd()}/cloud/main.js`,
   appId: process.env.APP_ID || 'myAppId',
   restKey: process.env.REST_KEY || 'myRestKey',
   javascriptKey: process.env.JAVASCRIPT_KEY || 'myJavaScriptKey',
@@ -33,5 +33,6 @@ module.exports = {
     }
   ],
   useEncryptedPasswords: false,
+  verifyGithubAccount: false,
   verifyUserEmails: false,
 }

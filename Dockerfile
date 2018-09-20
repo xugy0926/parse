@@ -20,5 +20,6 @@ ENV SERVER_URL http://192.168.2.200:1337/parse
 ENV CLOUD /parse/cloud/main.js
 
 EXPOSE 1337
+EXPOSE 13371
 
 CMD [ "node", "app.js" ]

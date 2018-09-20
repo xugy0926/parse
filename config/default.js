@@ -16,26 +16,27 @@ module.exports = {
   fileKey: undefined,
   serverURL: undefined,
   email: {
-    fromAddress: '',
-    user: '',
-    password: '',
-    host: '',
-    port: 465
+    fromAddress: undefined,
+    user: undefined,
+    password: undefined,
+    host: undefined,
+    port: undefined
   },
   github: {
-    clientID: '',
-    clientSecret: '',
-    callbackURL: 'http://host/oauthCallback'
+    clientID: undefined,
+    clientSecret: undefined,
+    callbackURL: undefined
   },
-  monitoringData: ['Post'],
+  monitoringData: [undefined],
   dashboardUsers: [
     {
-      user: 'user',
-      pass: 'pass'
+      user: undefined,
+      pass: undefined
     }
   ],
-  useEncryptedPasswords: false,
-  verifyUserEmails: false,
+  useEncryptedPasswords: undefined,
+  verifyGithubAccount: undefined,
+  verifyUserEmails: undefined,
   parse: defer(function() {
     return Object.assign(
       {
