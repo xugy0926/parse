@@ -20,7 +20,6 @@ module.exports = {
     port: 465
   },
   github: {
-    signinValid: true,
     clientID: '',
     clientSecret: '',
     callbackURL: ''

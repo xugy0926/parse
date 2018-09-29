@@ -1,5 +1,5 @@
-const passport = require('passport')
 const config = require('config')
+const passport = require('passport')
 const GitHubStrategy = require('passport-github').Strategy
 
 function githubAuth(req, res, next) {
