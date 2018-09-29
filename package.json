@@ -9,6 +9,9 @@
     "start": "node app.js",
     "test": "mocha"
   },
+  "engines": {
+    "node": ">= 8"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "config": "^2.0.1",
