@@ -5,7 +5,7 @@ module.exports = {
   mountPath: process.env.MOUNT_PATH || '/parse',
   dashboardPath: process.env.DASHBOARD_PATH || '/dashboard',
   databaseURI: process.env.DATABASE_URI || 'mongodb://localhost:27017/dev',
-  cloud: process.env.CLOUD || '/parse/cloud/main.js',
+  cloud: process.env.CLOUD || `${process.cwd()}/cloud/main.js`,
   appId: process.env.APP_ID || 'myAppId',
   restKey: process.env.REST_KEY || 'myRestKey',
   javascriptKey: process.env.JAVASCRIPT_KEY || 'myJavaScriptKey',
