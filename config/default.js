@@ -13,6 +13,7 @@ module.exports = {
   restKey: undefined,
   javascriptKey: undefined,
   masterKey: undefined,
+  readOnlyMasterKey: undefined,
   fileKey: undefined,
   serverURL: undefined,
   email: {
@@ -89,6 +90,7 @@ module.exports = {
           serverURL: this.serverURL,
           appId: this.appId,
           masterKey: this.masterKey,
+          readOnlyMasterKey: this.readOnlyMasterKey,
           restKey: this.restKey
         }
       ],

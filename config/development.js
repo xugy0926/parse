@@ -27,11 +27,16 @@ module.exports = {
   monitoringData: ['Post'],
   dashboardUsers: [
     {
-      user: 'user',
+      user: 'admin',
       pass: 'pass'
+    },
+    {
+      user: 'user',
+      pass: 'pass',
+      readOnly: true
     }
   ],
   useEncryptedPasswords: false,
   verifyGithubAccount: false,
-  verifyUserEmails: false,
+  verifyUserEmails: false
 }
