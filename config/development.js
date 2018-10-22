@@ -10,6 +10,7 @@ module.exports = {
   restKey: process.env.REST_KEY || 'myRestKey',
   javascriptKey: process.env.JAVASCRIPT_KEY || 'myJavaScriptKey',
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
+  readOnlyMasterKey: process.env.READ_ONLY_MASTER_KEY || 'readOnlyMasterKey',
   fileKey: process.env.FILE_KEY || 'optionalFileKey',
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',
   email: {
