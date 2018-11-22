@@ -1,4 +1,4 @@
-Example project using the parse-server module on Express.
+Example project using the [parse-server](https://parseplatform.org/) module on Express.
 
 ## run
 
