@@ -3,7 +3,6 @@ const defer = require('config/defer').deferConfig
 
 module.exports = {
   port: undefined,
-  cloudPort: undefined,
   appName: undefined,
   mountPath: undefined,
   dashboardPath: undefined,

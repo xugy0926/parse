@@ -1,4 +1,3 @@
-Parse.Cloud.afterSave('User', function(req) {
-  console.log('after save post...')
-  console.log('req.params = ' + req.params)
+Parse.Cloud.afterSave('_User', function() {
+  console.log('call this function after save _user')
 })

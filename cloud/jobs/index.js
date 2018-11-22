@@ -1,5 +1,5 @@
-Parse.Cloud.job('job', function(req, status) {
+Parse.Cloud.job('health', function() {
   setTimeout(() => {
-    console.log('hello, parse')
-  }, 10000)
+    console.log('Working properly')
+  }, 1000)
 })

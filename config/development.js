@@ -1,6 +1,5 @@
 module.exports = {
   port: 1337,
-  cloudPort: 13371,
   appName: process.env.APP_NAME || 'My Parse Server App',
   mountPath: process.env.MOUNT_PATH || '/parse',
   dashboardPath: process.env.DASHBOARD_PATH || '/dashboard',
