@@ -20,9 +20,9 @@ module.exports = {
     port: 465
   },
   github: {
-    clientID: '',
-    clientSecret: '',
-    callbackURL: ''
+    clientID: undefined,
+    clientSecret: undefined,
+    callbackURL: undefined
   },
   monitoringData: ['Post'],
   dashboardUsers: [
